@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0, 1);
+
+        }
+
+        .display {
+            width: 100%;
+            padding: 10%;
+            font-size: 1.5em;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: right;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+
+
+        }
+
+        .buttons button {
+            padding: 20%;
+            font-size: 1.2em;
+            border: nome;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons button.operador {
+            background-color: #f9a825;
+            color: #fff;
+        }
+
+        .buttons button.equals {
+            background-color: #4caf50;
+            color: #fff;
+            grid-column: span4;
+
+
+        }
+
+        .histoy p {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+
+        .history p {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" calss="display" id="display" readonly>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculatelog()">log</button>
+            <button onclick="appendtodispaly('x^y')">y^x</button>
+            <button onclick="appendtodisplay('/')">/</button>
+            <button onclick="appendtodispaly('7')">7</button>
+            <button onclick="appendtodispaly('8')">8</button>
+            <button onclick="appendtodispaly('9')">9</button>
+            <button onclick="appendtodispaly('*')">x</button>
+            <button onclick="appendtodispaly('4')">4</button>
+            <button onclick="appendtodispaly('5')">5</button>
+            <button onclick="appendtodispaly('6')">6</button>
+            <button onclick="appendtodispaly('+')">+</button>
+            <button onclick="appendtodispaly('1')">1</button>
+            <button onclick="appendtodispaly('2')">2</button>
+            <button onclick="appendtodispaly('3')">3</button>
+            <button onclick="calculateroot()">%</button>
+            <button onclick="appendtodispaly('0')">0</button>
+            <button class="aquals" onclick="calculateresult()">=</button>
+        </div>
+        <div class="history" id="history"></div>
+    </div>
+    <script>
+        let display = document.getElementById('dispaly');
+        let history = document.getElementById('history');
+        function appendtodispaly(value) {
+            display.value += value;
+        }
+        function clearDisplay() {
+            display.value;
+
+        }
+        function calculatelog() {
+            display.value = math.log10(parcefloat(display.value));
+        }
+        function calculateroot() {
+            disaplay.value = math.cbrt(parcefloat(display.value));
+
+        }
+        function calculateresult() {
+            try {
+                let expression = display.value.replace('x^y', '**');
+                let result = eval(expression);
+                history.innerHTML += <p>${display.value}=${result}</p>;
+                display.value = result;
+            } catch (error) {
+                display.value = 'error';
+            }
+
+
+
+        }
+            
+
+
+
+
+    </script>
+
+
+</body>
+
+
+</div>
+</div>
+
+</body>
+
+</html>
